@@ -1,5 +1,5 @@
 import getParsedData from './parsers.js';
-import compare from './compare.js';
+import compare from './utils.js';
 import formatter from './formatters/index.js';
 import { readFile, getExt } from './utils.js';
 
