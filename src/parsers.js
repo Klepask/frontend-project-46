@@ -1,15 +1,16 @@
 import yaml from 'js-yaml';
 
-function getParsedData(data, format) {
-  switch (format) {
-    case 'json':
-      return JSON.getParsedData(data);
-    case 'yml':
-    case 'yaml':
+const getParsedData = (data, ext) => {
+  switch (ext) {
+    case '.json':
+      return JSON.parse(data);
+    case '.yml':
+      return yaml.load(data);
+    case '.yaml':
       return yaml.load(data);
     default:
-      throw new Error(`Format file ${data} is not correct`);
+      throw new Error(`Unknown extname: '${ext}'!`);
   }
-}
+};
 
 export default getParsedData;

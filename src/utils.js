@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import fs from 'fs';
 import path from 'path';
 
@@ -26,7 +27,7 @@ function compare(obj1, obj2) {
       return {
         action: 'nested',
         key,
-        children: getDifferentObject(oldValue, newValue),
+        children: compare(oldValue, newValue),
       };
     }
     if (oldValue !== newValue) {
