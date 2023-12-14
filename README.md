@@ -31,8 +31,6 @@ $ git clone https://github.com/Klepask/frontend-project-46
 ```
 ### Запуск
 
-gendiff --format [option] <path to first file> <path to second file>
-
 gendiff -h - показать справку gendiff путь до файла №1 путь до файла №2
 
 [![asciicast](https://asciinema.org/a/H6QvQwM3m3E8Gg0HGpy6KWTy8.svg)](https://asciinema.org/a/H6QvQwM3m3E8Gg0HGpy6KWTy8)
