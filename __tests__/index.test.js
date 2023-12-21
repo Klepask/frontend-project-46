@@ -20,5 +20,6 @@ test.each([extensions])('genDiff test', (ext) => {
 
   expect(genDiff(fileBefore, fileAfter, 'stylish')).toBe(expectedStylish);
   expect(genDiff(fileBefore, fileAfter, 'json')).toBe(expectedJson);
+  expect(genDiff(fileBefore, fileAfter, 'plain')).toBe(expectedPlain);
   expect(genDiff(fileBefore, fileAfter)).toBe(expectedStylish);
 });
