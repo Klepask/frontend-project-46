@@ -31,6 +31,8 @@ const stylish = (ast) => {
           return `${getIndent(depth)}${symbols.deleted}${item.key}: ${stringify(item.value, depth)}`;
         case 'added':
           return `${getIndent(depth)}${symbols.added}${item.key}: ${stringify(item.value, depth)}`;
+        case 'changed':
+          return (`${getIndent(depth)}- ${item.key}: ${stringify(item.value1, depth)}\n${getIndent(depth)}+ ${item.key}: ${stringify(item.value2, depth)}`);
         case 'unchanged':
           return `${getIndent(depth)}${symbols.unchanged}${item.key}: ${stringify(item.value, depth)}`;
         case 'nested':
