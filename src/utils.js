@@ -5,47 +5,48 @@ import path from 'path';
 const readFile = (filePath) => fs.readFileSync(path.resolve(process.cwd(), filePath), 'utf8');
 const getExt = (filePath) => path.extname(filePath);
 
-function compare(obj1, obj2) {
-  const allKeys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2))).map((key) => {
-    const oldValue = obj1[key];
-    const newValue = obj2[key];
-    if (!_.has(obj2, key)) {
+const compare = (data1, data2) => {
+  const keys1 = Object.keys(data1);
+  const keys2 = Object.keys(data2);
+  const sortKeys = _.sortBy(_.union(keys1, keys2));
+
+  return sortKeys.map((key) => {
+    const value1 = data1[key];
+    const value2 = data2[key];
+    if (!Object.hasOwn(data1, key)) {
       return {
-        action: 'deleted',
         key,
-        oldValue,
+        value: value2,
+        type: 'added',
       };
     }
-    if (!_.has(obj1, key)) {
+    if (!Object.hasOwn(data2, key)) {
       return {
-        action: 'added',
         key,
-        newValue,
+        value: value1,
+        type: 'deleted',
       };
     }
-    if (_.isObject(oldValue) && _.isObject(newValue)) {
+    if (_.isObject(data1[key]) && _.isObject(data2[key])) {
       return {
-        action: 'nested',
+        type: 'nested',
         key,
-        children: compare(oldValue, newValue),
+        children: compare(value1, value2),
       };
     }
-    if (oldValue !== newValue) {
+    if (data1[key] !== data2[key]) {
       return {
-        action: 'changed',
         key,
-        oldValue,
-        newValue,
+        value1,
+        value2,
+        type: 'changed',
       };
     }
     return {
-      action: 'unchanged',
       key,
-      oldValue,
+      value: value1,
+      type: 'unchanged',
     };
   });
-  return allKeys;
-}
-
-
+};
 export { readFile, getExt, compare };

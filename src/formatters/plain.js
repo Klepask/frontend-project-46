@@ -1,8 +1,7 @@
-const getValueString = (value) => {
+const getValueType = (value) => {
   if (typeof value !== 'object' || value === null) {
     return typeof value === 'string' ? `'${value}'` : `${value}`;
   }
-  
   return '[complex value]';
 };
 
