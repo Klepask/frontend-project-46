@@ -17,18 +17,6 @@ const getIndent = (depth, type = 'first') => {
 
 const stringify = (value, depth) => {
   if (!_.isObject(value)) {
-    return `${value}`;
-  }
-
-  const lines = Object.entries(value).map(([key, val]) => 
-    `${getIndent(depth + 1)} ${key}: ${stringify(val, depth + 1)}`
-  );
-
-  return ['{', ...lines, `${getIndent(depth + 1, 'last')}}`].join('\n');  
-};
-
-const stringify = (value, depth) => {
-  if (!_.isObject(value)) {
     return `${value}`; 
   }
 
