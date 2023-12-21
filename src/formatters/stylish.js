@@ -1,13 +1,31 @@
 import _ from 'lodash';
 
 const symbols = {
-  unchanged: ' ',
+  unchanged: ' ',  
   added: '+ ',
   deleted: '- ',
 };
 
-const getIndent = (depth, replacer = ' ', spacesCount = 4) => 
-  replacer.repeat(spacesCount * depth);
+const getIndent = (depth, type = 'first') => {
+  const replacer = ' ';
+  const spacesCount = 4;
+
+  const currentSpace = spacesCount * depth;  
+
+  return type === 'last' ? replacer.repeat(currentSpace - spacesCount) : replacer.repeat(currentSpace - 2);
+}
+
+const stringify = (value, depth) => {
+  if (!_.isObject(value)) {
+    return `${value}`;
+  }
+
+  const lines = Object.entries(value).map(([key, val]) => 
+    `${getIndent(depth + 1)} ${key}: ${stringify(val, depth + 1)}`
+  );
+
+  return ['{', ...lines, `${getIndent(depth + 1, 'last')}}`].join('\n');  
+};
 
 const stringify = (value, depth) => {
   if (!_.isObject(value)) {
