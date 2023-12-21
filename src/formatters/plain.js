@@ -6,31 +6,28 @@ const getValueString = (value) => {
   return '[complex value]';
 };
 
-function plain(tree) {
-
-  const iter = (nodes, path) => {  
-    const lines = nodes
-      .filter(node => node.type !== 'unchanged')
-      .map(node => {
-
-        const key = [...path, node.key].join('.');
-      
-        switch(node.type) {
+const plain = (tree) => {
+  const iter = (nodes, keyName = '') => {
+    const result = nodes.filter((node) => node.type !== 'unchanged')
+      .map((item) => {
+        const { type } = item;
+        const keyPath = [...keyName, item.key].join('');
+        switch (type) {
           case 'deleted':
-            return `Property '${key}' was removed`;
-          case 'added':
-            return `Property '${key}' was added with value: ${getValueString(node.value)}`;
+            return `Property '${keyPath}' was removed`;
           case 'changed':
-            return `Property '${key}' was updated. From ${getValueString(node.value1)} to ${getValueString(node.value2)}`;  
+            return `Property '${keyPath}' was updated. From ${getValueType(item.value1)} to ${getValueType(item.value2)}`;
+          case 'added':
+            return `Property '${keyPath}' was added with value: ${getValueType(item.value)}`;
           case 'nested':
-            return iter(node.children, `${key}.`);
+            return iter(item.children, `${keyPath}.`);
+          default:
+            throw new Error(`Unknown type: '${type}'!`);
         }
       });
-
-    return lines.join('\n'); 
+    return result.join('\n');
   };
-  
   return iter(tree, '');
-}
+};
 
 export default plain;
