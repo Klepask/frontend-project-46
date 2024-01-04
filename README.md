@@ -2,9 +2,9 @@
 
 [![Actions Status](https://github.com/Klepask/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/Klepask/frontend-project-46/actions)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a9fdfd3c40707935be41/maintainability)](https://codeclimate.com/github/Klepask/frontend-project-46/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5b5f3f1a76cb288ab1ff/maintainability)](https://codeclimate.com/github/Klepask/frontend-project-46/maintainability)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a9fdfd3c40707935be41/test_coverage)](https://codeclimate.com/github/Klepask/frontend-project-46/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/5b5f3f1a76cb288ab1ff/test_coverage)](https://codeclimate.com/github/Klepask/frontend-project-46/test_coverage)
 
 [![Github Actions](https://Klepask/frontend-project-46/actions/workflows/github-actions.yml/badge.svg)](https://github.com/Klepask/frontend-project-46/actions/workflows/github-actions.yml)
 
