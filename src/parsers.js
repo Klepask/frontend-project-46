@@ -1,15 +1,15 @@
 import yaml from 'js-yaml';
 
-const getParsedData = (data, ext) => {
-  switch (ext) {
-    case '.json':
+const getParsedData = (data, format) => {
+  switch (format) {
+    case 'json':
       return JSON.parse(data);
-    case '.yml':
+    case 'yml':
       return yaml.load(data);
-    case '.yaml':
+    case 'yaml':
       return yaml.load(data);
     default:
-      throw new Error(`Unknown extname: '${ext}'!`);
+      throw new Error(`Unknown formatname: '${format}'!`);
   }
 };
 
