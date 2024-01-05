@@ -4,7 +4,11 @@ import getParsedData from './parsers.js';
 import compare from './compare.js';
 import formatter from './formatters/index.js';
 
-const readFile = (filePath) => fs.readFileSync(path.resolve(process.cwd(), filePath), 'utf8');
+const readFile = (filePath) => {
+  const ext = getExt(filePath); 
+  const fileContent = fs.readFileSync(path.resolve(process.cwd(), filePath), 'utf8');
+  return parsers[ext](fileContent);
+}
 const getExt = (filePath) => path.extname(filePath);
 
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
