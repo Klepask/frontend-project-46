@@ -1,12 +1,12 @@
 import fs from 'fs';
 import path from 'path';
-import getParsedData from './parsers.js'; 
+import getParsedData from './parsers.js';
 import compare from './compare.js';
 import formatter from './formatters/index.js';
 
 const formats = {
   '.json': 'json',
-  '.yml': 'yml', 
+  '.yml': 'yml',
   '.yaml': 'yaml'
 };
 
@@ -16,7 +16,6 @@ const readAndParseFile = (filePath) => {
   const format = formats[fileExt];
   return getParsedData(fileContent, format);
 };
-
 
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
   const obj1 = readAndParseFile(filepath1);
