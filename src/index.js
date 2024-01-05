@@ -7,7 +7,7 @@ import formatter from './formatters/index.js';
 const formats = {
   '.json': 'json',
   '.yml': 'yml',
-  '.yaml': 'yaml'
+  '.yaml': 'yaml',
 };
 
 const readAndParseFile = (filePath) => {
