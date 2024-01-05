@@ -6,7 +6,7 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5b5f3f1a76cb288ab1ff/test_coverage)](https://codeclimate.com/github/Klepask/frontend-project-46/test_coverage)
 
-[![Github Actions](https://Klepask/frontend-project-46/actions/workflows/github-actions.yml/badge.svg)](https://github.com/Klepask/frontend-project-46/actions/workflows/github-actions.yml)
+[![Github Actions](https://github.com/Klepask/frontend-project-46/actions/workflows/github-actions.yml/badge.svg)](https://github.com/Klepask/frontend-project-46/actions/workflows/github-actions.yml)
 
 # «Вычислитель отличий»
 
