@@ -15,11 +15,11 @@ const expectedPlain = readFile('expected_plain.txt');
 const expectedJson = readFile('expected_json.txt');
 
 test.each([extensions])('genDiff test', (ext) => {
-  const fileBefore = getFixturePath(`file1.${ext}`);
-  const fileAfter = getFixturePath(`file2.${ext}`);
+  const file1 = getFixturePath(`file1.${ext}`);
+  const file2 = getFixturePath(`file2.${ext}`);
 
-  expect(genDiff(fileBefore, fileAfter, 'stylish')).toBe(expectedStylish);
-  expect(genDiff(fileBefore, fileAfter, 'json')).toBe(expectedJson);
-  expect(genDiff(fileBefore, fileAfter, 'plain')).toBe(expectedPlain);
-  expect(genDiff(fileBefore, fileAfter)).toBe(expectedStylish);
+  expect(genDiff(file1, file2, 'stylish')).toBe(expectedStylish);
+  expect(genDiff(file1, file2, 'json')).toBe(expectedJson);
+  expect(genDiff(file1, file2, 'plain')).toBe(expectedPlain);
+  expect(genDiff(file1, file2)).toBe(expectedStylish);
 });
