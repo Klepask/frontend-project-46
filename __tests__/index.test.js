@@ -14,7 +14,7 @@ const expectedStylish = readFile('expected_stylish.txt');
 const expectedPlain = readFile('expected_plain.txt');
 const expectedJson = readFile('expected_json.txt');
 
-test.each([extensions])(`genDiff test ${extensions} format`, (ext) => {
+test.each(extensions)(`genDiff test ${extensions} format`, (ext) => {
   const file1 = getFixturePath(`file1.${ext}`);
   const file2 = getFixturePath(`file2.${ext}`);
 
