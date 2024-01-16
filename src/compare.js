@@ -53,7 +53,6 @@ const compare = (data1, data2) => {
       type: 'unchanged',
     };
   });
-
 };
 
 export default compare;
