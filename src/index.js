@@ -1,13 +1,12 @@
 import fs from 'fs';
+import process from 'process';
 import path from 'path';
 import getParsedData from './parsers.js';
 import compare from './compare.js';
 import formatter from './formatters/index.js';
-import process from 'process';
 
-const getFullPath = (filePath) => {
-  return path.resolve(process.cwd(), filePath);
-}
+const getFullPath = (filePath) => path.resolve(process.cwd(), filePath);
+
 const parseFile = (filePath) => {
   const fullPath = getFullPath(filePath);
   const fileContent = fs.readFileSync(fullPath, 'utf8');
