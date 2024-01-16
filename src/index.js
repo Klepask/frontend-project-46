@@ -10,11 +10,11 @@ const readAndParseFile = (filePath) => {
   return getParsedData(fileContent, fileExt);
 };
 
-const genDiff = (filepath1, filepath2, format = 'stylish') => {
-  const obj1 = readAndParseFile(filepath1);
-  const obj2 = readAndParseFile(filepath2);
-  const tree = compare(obj1, obj2);
-  return formatter(tree, `.${format}`);
+const gendiff = (filepath1, filepath2, format = 'stylish') => {
+  const file1Parsed = readAndParseFile(filepath1);
+  const file2Parsed = readAndParseFile(filepath2);
+  const diff = compare(file1Parsed, file2Parsed);
+  return formatter(diff, `.${format}`);
 };
 
-export default genDiff;
+export default gendiff;
