@@ -9,11 +9,11 @@ const indent = (depth, type = 'first') => {
 
 const stringify = (node, depth) => {
   if (!_.isObject(node)) {
-    return node.toString();
+    return `${node}`;
   }
 
-  const array = Object.entries(node);
-  const result = array.map(([key, value]) => `${indent(depth + 1)}  ${key}: ${stringify(value, depth + 1)}`);
+  const strings = Object.entries(node);
+  const result = strings.map(([key, value]) => `${indent(depth + 1)}  ${key}: ${stringify(value, depth + 1)}`);
 
   return `{\n${result.join('\n')}\n  ${indent(depth)}}`;
 };
