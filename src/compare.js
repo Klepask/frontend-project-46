@@ -3,7 +3,7 @@ import _ from 'lodash';
 const compare = (data1, data2) => {
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);
-  
+
   const sortKeys = _.sortBy(_.union(keys1, keys2));
 
   return sortKeys.map((key) => {
