@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const indent = (depth, type = 'first') => {
   const replacer = ' ';
   const spacesCount = 4;
@@ -6,8 +8,8 @@ const indent = (depth, type = 'first') => {
 };
 
 const stringify = (node, depth) => {
-  if (typeof node !== 'object' || node === null) {
-    return `${node}`;
+  if (!_.isObject(node)) {
+    return `${node}`; 
   }
 
   const array = Object.entries(node);

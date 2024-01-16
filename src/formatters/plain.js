@@ -1,8 +1,10 @@
+import _ from 'lodash';
+
 const getValueType = (value) => {
-  if (typeof value !== 'object' || value === null) {
-    return typeof value === 'string' ? `'${value}'` : `${value}`;
-  }
-  return '[complex value]';
+  if (_.isObject(value)) {
+    return '[complex value]';
+  }  
+  return typeof value === 'string' ? `'${value}'` : `${value}`;
 };
 
 const formatPlain = (tree) => {
