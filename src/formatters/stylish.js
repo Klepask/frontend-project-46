@@ -9,7 +9,7 @@ const indent = (depth, type = 'first') => {
 
 const stringify = (node, depth) => {
   if (!_.isObject(node)) {
-    return `${node}`; 
+    return node.toString();
   }
 
   const array = Object.entries(node);

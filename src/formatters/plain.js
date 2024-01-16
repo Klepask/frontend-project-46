@@ -3,7 +3,7 @@ import _ from 'lodash';
 const getValueType = (value) => {
   if (_.isObject(value)) {
     return '[complex value]';
-  }  
+  }
   return typeof value === 'string' ? `'${value}'` : `${value}`;
 };
 
