@@ -5,7 +5,7 @@ const getValueType = (value) => {
   return '[complex value]';
 };
 
-const plain = (tree) => {
+const formatPlain = (tree) => {
   const iter = (nodes, keyName = '') => {
     const result = nodes.filter((node) => node.type !== 'unchanged')
       .map((item) => {
@@ -29,4 +29,4 @@ const plain = (tree) => {
   return iter(tree, '');
 };
 
-export default plain;
+export default formatPlain;

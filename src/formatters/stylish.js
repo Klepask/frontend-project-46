@@ -16,7 +16,7 @@ const stringify = (node, depth) => {
   return `{\n${result.join('\n')}\n  ${indent(depth)}}`;
 };
 
-const stylish = (tree) => {
+const formatStylish = (tree) => {
   const iter = (node, depth) => {
     if (typeof node !== 'object' || node === null) {
       return `${node}`;
@@ -44,4 +44,4 @@ const stylish = (tree) => {
   return iter(tree, 1);
 };
 
-export default stylish;
+export default formatStylish;
