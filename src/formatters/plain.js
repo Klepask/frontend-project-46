@@ -9,11 +9,15 @@ const getValueType = (value) => {
   }
 };
 
+const getKeyPath = (keyName, key) => {
+  return keyName ? `${keyName}.${key}` : key;
+};
+
 const iter = (nodes, keyName = '') => {
   const result = nodes.filter((node) => node.type !== 'unchanged')
     .map((item) => {
       const { type } = item;
-      const keyPath = [...keyName, item.key].join('');
+      const keyPath = getKeyPath(keyName, item.key);
       switch (type) {
         case 'deleted':
           return `Property '${keyPath}' was removed`;
