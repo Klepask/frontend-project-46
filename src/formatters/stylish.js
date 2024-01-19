@@ -44,7 +44,7 @@ const iter = (node, depth) => {
 };
 
 const formatStylish = (tree) => {
-  return iter(tree, 1)
+  return iter(tree, 1);
 };
 
 export default formatStylish;
