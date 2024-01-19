@@ -27,7 +27,12 @@ const iter = (node, depth) => {
       case 'unchanged':
         return `${indent(depth)}  ${item.key}: ${stringify(item.value, depth)}`;
       case 'changed':
-        return (`${indent(depth)}- ${item.key}: ${stringify(item.value1, depth)}\n${indent(depth)}+ ${item.key}: ${stringify(item.value2, depth)}`);
+        const value1 = stringify(item.value1, depth);  
+        const value2 = stringify(item.value2, depth);
+        return `
+          ${indent(depth)}- ${item.key}: ${value1}
+          ${indent(depth)}+ ${item.key}: ${value2}
+        `;
       case 'added':
         return `${indent(depth)}+ ${item.key}: ${stringify(item.value, depth)}`;
       case 'nested':
