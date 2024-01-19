@@ -19,10 +19,6 @@ const stringify = (node, depth) => {
 };
 
 const iter = (node, depth) => {
-  if (typeof node !== 'object' || node === null) {
-    return `${node}`;
-  }
-
   const result = node.map((item) => {
     const { type } = item;
     switch (type) {
