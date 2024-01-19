@@ -9,7 +9,7 @@ const getValueType = (value) => {
   }
 };
 
-const getKeyPath = (keyName, key) => (keyName ? `${keyName}.${key}` : key);
+const getKeyPath = (keyName, key) => [...keyName, key].join('');
 
 const iter = (nodes, keyName = '') => {
   const result = nodes.filter((node) => node.type !== 'unchanged')
