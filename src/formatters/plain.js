@@ -1,10 +1,14 @@
 import _ from 'lodash';
 
 const getValueType = (value) => {
-  if (_.isObject(value)) {
-    return '[complex value]';
+  switch (typeof value) {
+    case 'object':
+      return value !== null ? '[complex value]' : String(value);
+    case 'string':
+      return `'${value}'`;
+    default:
+      return String(value);
   }
-  return typeof value === 'string' ? `'${value}'` : `${value}`;
 };
 
 const iter = (nodes, keyName = '') => {
