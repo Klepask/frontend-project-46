@@ -43,8 +43,6 @@ const iter = (node, depth) => {
   return `{\n${result.join('\n')}\n${indent(depth, 'last')}}`;
 };
 
-const formatStylish = (tree) => {
-  return iter(tree, 1);
-};
+const formatStylish = (tree) => iter(tree, 1);
 
 export default formatStylish;
