@@ -7,7 +7,6 @@ const getValueType = (value) => {
   return typeof value === 'string' ? `'${value}'` : `${value}`;
 };
 
-
 const iter = (nodes, keyName = '') => {
   const result = nodes.filter((node) => node.type !== 'unchanged')
     .map((item) => {
