@@ -9,11 +9,11 @@ const compare = (data1, data2) => {
   return sortKeys.map((key) => {
     const value1 = data1[key];
     if (!Object.hasOwn(data1, key)) {
-        return {
-          key,
-          value: data2[key],
-          type: 'added',
-        };
+      return {
+        key,
+        value: data2[key],
+        type: 'added',
+      };
     }
 
     if (!Object.hasOwn(data2, key)) {
