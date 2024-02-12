@@ -3,11 +3,11 @@ import formatPlain from './plain.js';
 
 const formatter = (data, format) => {
   switch (format) {
-    case '.stylish':
+    case 'stylish':
       return formatStylish(data);
-    case '.plain':
+    case 'plain':
       return formatPlain(data);
-    case '.json':
+    case 'json':
       return JSON.stringify(data);
     default:
       throw new Error(`Unknown format: '${format}'!`);

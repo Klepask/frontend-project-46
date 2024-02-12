@@ -18,7 +18,7 @@ const gendiff = (filepath1, filepath2, format = 'stylish') => {
   const file1Data = parseFile(filepath1);
   const file2Data = parseFile(filepath2);
   const diff = compare(file1Data, file2Data);
-  return formatter(diff, `.${format}`);
+  return formatter(diff, `${format}`);
 };
 
 export default gendiff;
