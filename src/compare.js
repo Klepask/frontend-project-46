@@ -15,17 +15,16 @@ const compare = (data1, data2) => {
       };
     }
 
-    const value1 = data1[key]; // теперь определение value1 находится после проверки наличия ключа в data1
-
     if (!Object.hasOwn(data2, key)) {
       return {
         key,
-        value: value1,
+        value: data1[key],
         type: 'deleted',
       };
     }
 
-    const value2 = data2[key]; // определяем value2 для дальнейшего использования.
+    const value1 = data1[key];
+    const value2 = data2[key];
 
     if (_.isObject(value1) && _.isObject(value2)) {
       return {
